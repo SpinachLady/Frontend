@@ -9,3 +9,7 @@
     display: inline-block;
     margin: 0 10px;
 }
+
+img.ikon{
+    width: 20px; height: auto
+}
