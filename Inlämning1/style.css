@@ -1,0 +1,11 @@
+#myNavBar {
+    text-align: center;
+}
+
+#myNavBar ul {
+    padding: 0;
+}
+#myNavBar li {
+    display: inline-block;
+    margin: 0 10px;
+}
