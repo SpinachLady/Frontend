@@ -9,3 +9,10 @@
     display: inline-block;
     margin: 0 10px;
 }
+
+
+#headLogoTopOfWebpage {
+    text-align: center;
+    font-size: xx-large;
+    font-variant-caps: all-small-caps;
+}
