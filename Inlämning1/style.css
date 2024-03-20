@@ -12,7 +12,7 @@
 
 #headLogoTopOfWebpage {
     text-align: center;
-    font-size: xx-large;
+    font-size: 3em;
     font-variant-caps: all-small-caps;
 }
 
@@ -32,3 +32,6 @@
   margin-bottom: auto;
   margin-top: auto;
 }
+img.ikon{
+    width: 20px; height: auto
+} 
