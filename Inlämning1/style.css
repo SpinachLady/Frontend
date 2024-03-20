@@ -44,3 +44,7 @@ img.ikon{
 img.ikon{
     width: 20px; height: auto
 }
+
+.red-placeholder::placeholder {
+  color: red !important;
+}
