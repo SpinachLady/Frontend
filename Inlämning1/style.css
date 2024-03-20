@@ -1,13 +1,44 @@
-#myNavBar {
+#topHeaderWithRecs {
     text-align: center;
+    font-size: x-small;
+    background-color: #ced4da;
+
 }
 
-#myNavBar ul {
-    padding: 0;
+#headLogoTopOfWebpage {
+    text-align: center;
+    font-size: 3em;
+    font-variant-caps: all-small-caps;
 }
-#myNavBar li {
-    display: inline-block;
-    margin: 0 10px;
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    margin-left: -80px;
+  }
+}
+
+.custom-card {
+  width: 100%;
+  height: 100%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-img-top {
+  margin-bottom: auto;
+  margin-top: auto;
+}
+img.ikon{
+    width: 20px; height: auto
+} 
+
+.socialMediaLink {
+    text-decoration: none;
 }
 
 img.ikon{
