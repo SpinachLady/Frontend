@@ -26,6 +26,10 @@ async function fetchAndDisplayProductCards() {
       cardText.textContent = product.title;
       cardBody.appendChild(cardText);
 
+      const price = document.createElement('p');
+      price.textContent = product.price + "€";
+      cardBody.appendChild(price);
+
       const buyButton = document.createElement('button');
       buyButton.textContent = 'Buy';
       cardBody.appendChild(buyButton);
