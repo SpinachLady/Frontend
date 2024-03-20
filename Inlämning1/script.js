@@ -45,7 +45,6 @@ async function fetchAndDisplayProductCards() {
 }
 
 document.getElementById("myForm").addEventListener("submit", function(event) {
-  
   event.preventDefault();
 
   let isValid = true;
