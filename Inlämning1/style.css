@@ -36,3 +36,7 @@
 img.ikon{
     width: 20px; height: auto
 } 
+
+.socialMediaLink {
+    text-decoration: none;
+}
