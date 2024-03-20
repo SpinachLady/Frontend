@@ -11,6 +11,12 @@
     font-variant-caps: all-small-caps;
 }
 
+@media (min-width: 992px) {
+  .navbar-collapse {
+    margin-left: -80px;
+  }
+}
+
 .custom-card {
   width: 100%;
   height: 100%;
