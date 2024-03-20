@@ -17,8 +17,19 @@
   }
 }
 
+.about-us-div{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 .about-us{
-  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.about-us-text{
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .custom-card {
