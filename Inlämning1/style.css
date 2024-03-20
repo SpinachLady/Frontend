@@ -1,13 +1,8 @@
-#myNavBar {
+#topHeaderWithRecs {
     text-align: center;
-}
+    font-size: x-small;
+    background-color: #ced4da;
 
-#myNavBar ul {
-    padding: 0;
-}
-#myNavBar li {
-    display: inline-block;
-    margin: 0 10px;
 }
 
 #headLogoTopOfWebpage {

@@ -7,7 +7,7 @@ async function fetchAndDisplayProductCards() {
       const product = await response.json();
 
       const cardColumn = document.createElement('div');
-      cardColumn.classList.add('col-sm-6', 'col-md-4','col-lg-3', 'col-xl-2', 'mb-2');
+      cardColumn.classList.add('col-sm-6', 'col-md-5','col-lg-4', 'col-xl-3', 'mb-2');
 
       const card = document.createElement('div');
       card.classList.add('card', 'custom-card');
