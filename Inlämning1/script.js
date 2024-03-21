@@ -1,11 +1,11 @@
 async function fetchAndDisplayProductCards() {
   const cardRow = document.getElementById('cardRow');
 
-  for (let productId = 1; productId <= 20; productId++) {
+  let resp = await fetch('https://fakestoreapi.com/products');
+  let json = await resp.json();
+  
+  json.forEach(product => {
     try {
-      const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
-      const product = await response.json();
-
       const cardColumn = document.createElement('div');
       cardColumn.classList.add('col-12', 'col-sm-6', 'col-md-5','col-lg-4', 'col-xl-3', 'mb-2');
 
@@ -17,7 +17,7 @@ async function fetchAndDisplayProductCards() {
 
       const img = document.createElement('img');
       img.src = product.image;
-      img.alt = product.title;
+      img.alt = "Image"
       img.classList.add('card-img-top');
       cardBody.appendChild(img);
 
@@ -41,7 +41,7 @@ async function fetchAndDisplayProductCards() {
     } catch (error) {
       console.error(`Error fetching product data for ID ${productId}:`, error);
     }
-  }
+  });
 }
 
 document.getElementById("myForm").addEventListener("submit", function(event) {
