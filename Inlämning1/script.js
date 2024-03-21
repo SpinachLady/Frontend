@@ -120,3 +120,9 @@ async function createCustomerForm(){
     console.log(isValid);
   });
 }
+
+async function fetchSingleProduct(){
+  fetch('https://fakestoreapi.com/products/' + localStorage.chosenProduct)
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+}
