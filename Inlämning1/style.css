@@ -17,6 +17,10 @@
   }
 }
 
+.centered-footer-text{
+  text-align: center;
+}
+
 .about-us-div{
   padding-top: 30px;
   padding-bottom: 30px;
