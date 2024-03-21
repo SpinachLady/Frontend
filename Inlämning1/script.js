@@ -1,3 +1,9 @@
+async function redirectToHomePageIfLocalStorageIsNull(){
+  if(localStorage.chosenProduct == undefined){
+    window.location.href = "index.html";
+  }
+}
+
 async function fetchAndDisplayProductCards() {
   const cardRow = document.getElementById('cardRow');
 
@@ -31,6 +37,10 @@ async function fetchAndDisplayProductCards() {
       cardBody.appendChild(price);
 
       const buyButton = document.createElement('button');
+      buyButton.addEventListener('click', function(){
+        localStorage.chosenProduct = product.id;
+        location.href="order.html";
+      })
       buyButton.textContent = 'Buy';
       cardBody.appendChild(buyButton);
 
@@ -44,70 +54,69 @@ async function fetchAndDisplayProductCards() {
   });
 }
 
-document.getElementById("myForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  let isValid = true;
-
-  const nameInput = document.getElementById("name");
-  const phoneNumberInput = document.getElementById("phone-number");
-  const emailInput = document.getElementById("exampleInputEmail1");
-  const streetNameInput = document.getElementById("streetName");
-  const zipCodeInput = document.getElementById("zipCode");
-  const cityInput = document.getElementById("city");
+async function createCustomerForm(){
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault();
   
-
+    let isValid = true;
   
-  const fullNamePattern = /^(?=.{2,50}$)(?:[a-zA-Z]+(?:\s[a-zA-Z]+){1,})$/;
-  if (!fullNamePattern.test(nameInput.value.trim())) {
-    isValid = false;
-    nameInput.value = "";
-    nameInput.placeholder = "Please enter Firstname Lastname.";
-    nameInput.classList.add("red-placeholder");
-  } 
-
-  const phonePattern = /^[\d()-]{0,50}$/;
-  if (!phonePattern.test(phoneNumberInput.value.trim()) || phoneNumberInput.value.trim().length == 0) {
-    isValid = false;
-    phoneNumberInput.value = "";
-    phoneNumberInput.placeholder = "Please enter correct phonenumber";
-    phoneNumberInput.classList.add("red-placeholder");
-  } 
+    const nameInput = document.getElementById("name");
+    const phoneNumberInput = document.getElementById("phone-number");
+    const emailInput = document.getElementById("exampleInputEmail1");
+    const streetNameInput = document.getElementById("streetName");
+    const zipCodeInput = document.getElementById("zipCode");
+    const cityInput = document.getElementById("city");
+    
+    const fullNamePattern = /^(?=.{2,50}$)(?:[a-zA-Z]+(?:\s[a-zA-Z]+){1,})$/;
+    if (!fullNamePattern.test(nameInput.value.trim())) {
+      isValid = false;
+      nameInput.value = "";
+      nameInput.placeholder = "Please enter first and last name";
+      nameInput.classList.add("red-placeholder");
+    } 
   
-  const emailPattern = /^[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}$/;
-  if (!emailPattern.test(emailInput.value.trim())) {
-    isValid = false;
-    emailInput.value = "";
-    emailInput.placeholder = "Please enter correct Email";
-    emailInput.classList.add("red-placeholder");
-  }
-
-  if (streetNameInput.value.trim().length < 2 || streetNameInput.value.trim().length > 50) {
-    isValid = false;
-    streetNameInput.value = "";
-    streetNameInput.placeholder = "Please enter a valid streetname";
-    streetNameInput.classList.add("red-placeholder");
-  }
-  const digitPattern = /^\d+$/;
-  if (zipCodeInput.value.toString().trim().length !== 5 || !digitPattern.test(zipCodeInput.value.toString().trim())) {
-    isValid = false;
-    zipCodeInput.value = "";
-    zipCodeInput.placeholder = "Please enter a zipcode with 5 digits";
-    zipCodeInput.classList.add("red-placeholder");
-  }
-
-  if (cityInput.value.trim().length < 2 || cityInput.value.trim().length > 50) {
-    isValid = false;
-    cityInput.value = "";
-    cityInput.placeholder = "Please enter a city must be between 2 and 50 characters.";
-    cityInput.classList.add("red-placeholder");
-  }
-
-  if(isValid){
-    // här kommer kod som skickar vidare till confirm sidan
-    console.log("success");
-  }
+    const phonePattern = /^[\d()-]{0,50}$/;
+    if (!phonePattern.test(phoneNumberInput.value.trim()) || phoneNumberInput.value.trim().length == 0) {
+      isValid = false;
+      phoneNumberInput.value = "";
+      phoneNumberInput.placeholder = "Please enter correct phone number";
+      phoneNumberInput.classList.add("red-placeholder");
+    } 
+    
+    const emailPattern = /^[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}$/;
+    if (!emailPattern.test(emailInput.value.trim())) {
+      isValid = false;
+      emailInput.value = "";
+      emailInput.placeholder = "Please enter correct Email";
+      emailInput.classList.add("red-placeholder");
+    }
   
-
-  console.log(isValid);
-});
+    if (streetNameInput.value.trim().length < 2 || streetNameInput.value.trim().length > 50) {
+      isValid = false;
+      streetNameInput.value = "";
+      streetNameInput.placeholder = "Please enter a valid street name";
+      streetNameInput.classList.add("red-placeholder");
+    }
+    const digitPattern = /^\d+$/;
+    if (zipCodeInput.value.toString().trim().length !== 5 || !digitPattern.test(zipCodeInput.value.toString().trim())) {
+      isValid = false;
+      zipCodeInput.value = "";
+      zipCodeInput.placeholder = "Please enter a valid zipcode (5 digits)";
+      zipCodeInput.classList.add("red-placeholder");
+    }
+  
+    if (cityInput.value.trim().length < 2 || cityInput.value.trim().length > 50) {
+      isValid = false;
+      cityInput.value = "";
+      cityInput.placeholder = "Please enter a city";
+      cityInput.classList.add("red-placeholder");
+    }
+  
+    if(isValid){
+      // här kommer kod som skickar vidare till confirm sidan
+      console.log("success");
+    }
+    
+    console.log(isValid);
+  });
+}

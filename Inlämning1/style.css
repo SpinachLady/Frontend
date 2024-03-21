@@ -53,16 +53,12 @@
   margin-top: auto;
 }
 
-img.ikon{
+img.icon{
     width: 20px; height: auto
 } 
 
 .socialMediaLink {
     text-decoration: none;
-}
-
-img.ikon{
-    width: 20px; height: auto
 }
 
 .red-placeholder::placeholder {
