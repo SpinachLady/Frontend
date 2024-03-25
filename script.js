@@ -113,7 +113,8 @@ async function createCustomerForm(){
     }
   
     if(isValid){
-      // här kommer kod som skickar vidare till confirm sidan
+      localStorage.customerName = nameInput.value;
+      window.location.href = "confirmation.html";
       console.log("success");
     }
     
@@ -143,4 +144,34 @@ async function fetchSingleProduct(){
             </div>
               `
   })
+}
+
+async function fetchSingleProductForReceipt(){
+  fetch('https://fakestoreapi.com/products/' + localStorage.chosenProduct)
+            .then(res=>res.json())
+            .then(json=>{
+              document.getElementById("receiptInfo").innerHTML = `
+              <br>
+              <div class="card mb-3" style="width: 100%;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="${json.image}" class="img-fluid rounded-start" alt="productDescription">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">${json.title}</h5>
+                    <p class="card-text"> <strong style="font-size: larger;">Product description:</strong><br> ${json.description}</p>
+                    <p class="card-text" style="font-size: 25px; text-align:right">Price: ${json.price}€</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+              `
+    localStorage.clear();
+  })
+}
+
+function createReceipt(){
+  document.getElementById("receipt").innerHTML = `
+  Thank you for your purchase ${localStorage.customerName}`
 }
